@@ -24,5 +24,3 @@ It has 3 main components:
   - The Plugin replace them with alternative content or obfuscate them, alongside replacing the audio with predefined streams.
 - Optimize for BeagleBoard
   - Ensure the entire system is optimized for real-time performance on BeagleBoard hardware.
-
-##
