@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/Blogs/2024/05/17/GSoC-about.html</loc>
+<lastmod>2024-05-17T00:00:00+05:30</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/Blogs/about.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/Blogs/contact.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/Blogs/posts/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/Blogs/</loc>
+</url>
+</urlset>
