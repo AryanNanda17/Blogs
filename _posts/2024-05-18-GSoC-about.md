@@ -3,7 +3,7 @@ layout: post
 title: "GSoC - I made it!"
 subtitle: "Intro to my GSoC project"
 date: 2024-05-17
-background: "/assets/posts/1.png"
+background: "/img/main1.png"
 tags: gsoc
 ---
 
@@ -16,9 +16,12 @@ Open source software is a software with source code that anyone can inspect, mod
 The primary motivation behind this project is to enhance the media consumption experience by providing users with control over the content they see during commercial breaks. Advertisements can often be disruptive, irrelevant, or inappropriate for the viewing context.
 
 For instance:
-![](../assets/scary.png)
 
-- Say, we are Watching a sports match or a comedy movie and suddenly encounter an ad for a horror movie or a crime drama, this can be jarring and can negatively impact the viewing experience.
+- Say, we are watching a sports match or a comedy movie and suddenly encounter an ad for a horror movie or a crime drama, this can be jarring and can negatively impact the viewing experience.
+
+<center>
+<img src="{{site.baseurl}}/assets/scary.png" width="500px"/>
+</center>
 - Also, Certain advertisements may contain content that is disturbing or unsuitable for all audiences, especially when watching with children.
 
 By developing a system that detects and replaces commercials in real-time, this project aims to ensure that viewers can enjoy a seamless and pleasant viewing experience, tailored to their preferences. Also it will serve as an educational resource on integrating AI and machine learning capabilities into embedded systems.
@@ -27,30 +30,34 @@ By developing a system that detects and replaces commercials in real-time, this 
 
 The project has 3 main components:
 
-1. Creating a Deep Learning Model:
+- Creating a Deep Learning Model:
 
-- Create a dataset consisting of Commercials and Non-Commercial Videos.
-- Design and train a model architecture that detects commercials in real-time.
-- Evaluate the model’s performance.
+  - Create a dataset consisting of Commercials and Non-Commercial Videos.
+  - Design and train a model architecture that detects commercials in real-time.
+  - Evaluate the model’s performance.
 
-2. Implementing a GStreamer plugin:
+- Implementing a GStreamer plugin:
 
-- Create a custom GStreamer plugin for the Beaglebone AI-64 that utilizes the trained model to detect commercials in real-time.
-- Configure the plugin to replace commercials with alternative content or obfuscate them, and replace the audio with predefined streams.
+  - Create a custom GStreamer plugin for the Beaglebone AI-64 that utilizes the trained model to detect commercials in real-time.
+  - Configure the plugin to replace commercials with alternative content or obfuscate them, and replace the audio with predefined streams.
 
-3. Optimizing for BeagleBoard:
+- Optimizing for BeagleBoard:
 
-- Ensure that the entire system is optimized for real-time performance on BeagleBoard hardware.
+  - Ensure that the entire system is optimized for real-time performance on BeagleBoard hardware.
 
 ## BeagleBone AI-64
 
-![BegleBoneAi-64](../assets/BegleBoneAi-64.png)
-
+<center>
+<img src="{{site.baseurl}}/assets/BegleBoneAi-64.png" width="500px"/>
+</center>
 BeagleBone® AI-64 brings a complete system for developing artificial intelligence (AI) and machine learning solutions with the convenience and expandability of the BeagleBone® platform and the peripherals on board to get started right away learning and building applications. The hardware supports real-time H.264 and H.265 (HEVC) video encoding and decoding. Typical performance metrics indicate the capability to handle 1080p streams at 60 frames per second (fps) or multiple 720p streams simultaneously.
 
 ### Connections
 
-![](../assets/BBAi64_Connections.png)
+<center>
+<img src="{{site.baseurl}}/assets/BBAi64_Connections.png" width="500px"/>
+</center>
+
 For the project, I'll take input of media from an HDMI source and, after processing it, the output will be displayed on a monitor using a miniDP to HDMI cable.
 
 ## Why BeagleBone AI-64?
@@ -61,7 +68,9 @@ Using BeagleBone AI-64 hardware is a key aspect of this project, offering severa
 - The TDA4VM processor integrates a dedicated deep learning accelerator (DLA), which significantly boosts the performance of AI inferencing tasks. It can accelerate the inferencing of deep learning models by offloading and parallelizing computation-intensive operations, thus reducing the time required for each inference.
 - The hardware’s architecture and support for various multimedia processing frameworks, such as GStreamer, make it an ideal choice for developing and running the proposed system efficiently.
 
-![](../assets/Comparison.png)
+<center>
+<img src="{{site.baseurl}}/assets/Comparison.png" width="500px"/>
+</center>
 
 We can see from the above comparison that TDA4VM is up to 60% better in terms of FPS/TOPS efficiency. What this means is that 60% less TOPS are needed to run equivalent deep learning functions.
 
@@ -83,7 +92,7 @@ In the project, I will create a GStreamer Plugin that will receive input from an
 - It offers valuable insights into deploying neural network models in resource-constrained environments, creating custom GStreamer plugins for multimedia processing, and applying machine learning in real-world scenarios to enhance digital media experiences.
 - Moreover, it enhances the viewing experience by automatically detecting and replacing commercials with preferred content, ensuring uninterrupted entertainment.
 
-Thank you!!
+Thank you for reading the complete blog!!
 
 ##### To Explore more about the project refer the following Links:
 
