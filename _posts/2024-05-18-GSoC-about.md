@@ -48,7 +48,8 @@ The project has 3 main components:
 ## BeagleBone AI-64
 
 <center>
-<img src="{{site.baseurl}}/assets/BegleBoneAi-64.png" width="500px"/>
+<img src="{{site.baseurl}}/assets/BegleBoneAi-64.png" width="700px" height="500px" />
+<p><a href="https://docs.beagleboard.org/boards/beaglebone/ai-64/ch04.html" target="_blank">Source</a></p>
 </center>
 BeagleBone® AI-64 brings a complete system for developing artificial intelligence (AI) and machine learning solutions with the convenience and expandability of the BeagleBone® platform and the peripherals on board to get started right away learning and building applications. The hardware supports real-time H.264 and H.265 (HEVC) video encoding and decoding. Typical performance metrics indicate the capability to handle 1080p streams at 60 frames per second (fps) or multiple 720p streams simultaneously.
 
@@ -56,6 +57,7 @@ BeagleBone® AI-64 brings a complete system for developing artificial intelligen
 
 <center>
 <img src="{{site.baseurl}}/assets/BBAi64_Connections.png" width="500px"/>
+<p><a href="https://docs.beagleboard.org/boards/beaglebone/ai-64/ch03.html" target="_blank">Source</a></p>
 </center>
 
 For the project, I'll take input of media from an HDMI source and, after processing it, the output will be displayed on a monitor using a miniDP to HDMI cable.
@@ -69,7 +71,8 @@ Using BeagleBone AI-64 hardware is a key aspect of this project, offering severa
 - The hardware’s architecture and support for various multimedia processing frameworks, such as GStreamer, make it an ideal choice for developing and running the proposed system efficiently.
 
 <center>
-<img src="{{site.baseurl}}/assets/Comparison.png" width="500px"/>
+<img src="{{site.baseurl}}/assets/Comparison.png" width="700px" height="350px" />
+<p><a href="https://www.ti.com/lit/an/spracz2/spracz2.pdf?ts=1716900138738&ref_url=https%253A%252F%252Fwww.google.com%252F" target="_blank">Source</a></p>
 </center>
 
 We can see from the above comparison that TDA4VM is up to 60% better in terms of FPS/TOPS efficiency. What this means is that 60% less TOPS are needed to run equivalent deep learning functions.
