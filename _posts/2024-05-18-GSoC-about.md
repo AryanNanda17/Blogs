@@ -96,7 +96,7 @@ Thank you for reading the complete blog!!
 
 ##### To Explore more about the project refer the following Links:
 
-- Youtube Video [Link](https://www.youtube.com/watch?v=Kagg8JycOfo)
-- Project Details [Link](https://forum.beagleboard.org/t/enhanced-media-experience-with-ai-powered-commercial-detection-and-replacement/37358)
-- Gitlab Repo [Link](https://openbeagle.org/aryan_nanda/gsoc_2024-enhanced_media_experience_with_ai-powered_commercial_detection_and_replacement)
-- My proposal [Link](https://gsoc.beagleboard.io/proposals/commercial_detection_and_replacement.html)
+- Youtube Video **[Link](https://www.youtube.com/watch?v=Kagg8JycOfo)**
+- Project Details **[Link](https://forum.beagleboard.org/t/enhanced-media-experience-with-ai-powered-commercial-detection-and-replacement/37358)**
+- Gitlab Repo **[Link](https://openbeagle.org/aryan_nanda/gsoc_2024-enhanced_media_experience_with_ai-powered_commercial_detection_and_replacement)**
+- My proposal **[Link](https://gsoc.beagleboard.io/proposals/commercial_detection_and_replacement.html)**
