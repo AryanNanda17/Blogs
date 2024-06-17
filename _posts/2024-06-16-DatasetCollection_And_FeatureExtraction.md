@@ -109,7 +109,7 @@ feature_lists: {
 
 The vocabulary.csv is a data dictionary for the label ids mapped to label names and other relevant details for the video classifications. Basically, all the actual labels in the data examples and model predicted outputs are numbers and this is your decoder ring for what those numbers mean.
 
-Our `Television Advertisemen` entity maps to **315 label_id** using this vocabulary.csv.
+Our `Television Advertisement` entity maps to **315 label_id** using this vocabulary.csv.
 
 ## Implementation
 
@@ -154,4 +154,4 @@ The collected dataset will play a crucial role in training the model. The next t
 
 ### Links
 
-- Dataset Collection And Feature Extraction Codes **[Link](https://openbeagle.org/aryan_nanda/gsoc_2024-enhanced_media_experience_with_ai-powered_commercial_detection_and_replacement/-/tree/main/dataset/yt8m?ref_type=heads)**
+- Dataset Collection And Feature Extraction Codes **[Link](https://openbeagle.org/aryan_nanda/gsoc_2024-enhanced_media_experience_with_ai-powered_commercial_detection_and_replacement/-/tree/main/datasetCollection_And_featureExtraction/yt8m?ref_type=heads)**
