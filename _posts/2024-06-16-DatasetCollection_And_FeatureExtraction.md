@@ -19,15 +19,13 @@ The YouTube-8M dataset stands out as a significant resource for this project. It
 
 The actual structure of how the data is stored is in compressed protobuf files that are using the TensorFlow version of these types of file structures in tensorflow.Example and tensorflow.SequenceExample. Each video is stored in one of these types of objects and then grouped into TFRecords.
 
-Compression was needed to make it easier to develop a model because the raw dataset is hundreds of terabytes considering the original 8 million is over 500K hours of video. For the frame-level features, the entire video frame image (one per second with up to the first 360 seconds per video) was pre-processed with the publicly available Inception network that was originally trained on ImageNet. This reduced dimensionality to 2048 features per frame and pulled motion out of the video in essence making it a still video. Research has show motion features have diminishing returns as the size and diversity of the video data increases. PCA with whitening was also applied to reduce to 1024 features per frame. Finally, the data was compressed from 32-bit to 8-bit data types. More information can be found in the paper [YT-8m: A Large-Scale Video Classification Benchmark.](https://arxiv.org/pdf/1609.08675)
+Compression was needed to make it easier to develop a model because the raw dataset is hundreds of terabytes considering the original 8 million is over 500K hours of video. For the frame-level features, the entire video frame image (one per second with up to the first 360 seconds per video) was pre-processed with the publicly available Inception network that was originally trained on ImageNet. This reduced dimensionality to 2048 features per frame and pulled motion out of the video in essence making it a still video. Research has show motion features have diminishing returns as the size and diversity of the video data increases. PCA with whitening was also applied to reduce to 1024 features per frame. Finally, the data was compressed from 32-bit to 8-bit data types. More information can be found in the paper **[YT-8m: A Large-Scale Video Classification Benchmark.](https://arxiv.org/pdf/1609.08675)**
 
 ### Tensorflow.SequenceExample
 
-The tensorflow.Example structure is a compact data format containing key-value store features where each key, which is a string, maps to a value. This is a packed byte, float or int64 list. It’s a way to standardize an open data format that is flexible to define the configuration when writing and reading from it. This is basically TensorFlow’s approach to protocol buffers (protobuf) to make it easy to store and share unstructured data. So you define what the key is and its related values. Visuals are unstructured data and need this type of storage mechanism.
+The `tensorflow.Example` structure is a compact data format that uses a key-value store where each key is a string mapping to a value, which can be a list of bytes, floats, or int64s. This standardized open data format is flexible, allowing users to define keys and their corresponding values. It essentially serves as TensorFlow's implementation of protocol buffers (protobuf), facilitating the storage and sharing of unstructured data, such as visuals.
 
-The tensorflow.SequenceExample represents one or more sequences and some context that applies to the entire example. The real difference between the two is that SequenceExample has a FeatureList that represents values of a feature over time which is equivalent to over frames.
-
-Due to the dimensional reduction transformation of the video, you are not able to translate back to its original form, but labels exist to help verify results.
+On the other hand, the `tensorflow.SequenceExample` is designed to handle one or more sequences along with context that applies to the entire example. The primary distinction between the two is that SequenceExample includes a FeatureList, which represents the values of a feature over time, or across frames.
 
 ### TFRecord
 
@@ -44,8 +42,8 @@ The total size is around 1.53TB (estimated about 1.1M videos) and has the follow
 
 - id: unique YouTube video id. Train includes unique actual values and test/validation are anonymized
 - labels: list of labels for that video
-- rgb: 1024 8 bit quantized video rgb features
-- audio: 128 8 bit quantized audio features from the video
+- rgb: list of 1024 8 bit quantized frame rgb features for that video
+- audio: list of 128 8 bit quantized frame audio features for that video
 
 ### Example of Frame-level features dataset
 
@@ -152,7 +150,7 @@ I randomly choose ~450 features out of all non-commercial entites features in ev
 
 ### Conclusion
 
-The collected dataset will play a crucial role in training the model. The next task is to combine the audio and visual features for each video and proceed with developing the model pipeline.
+The collected dataset will play a crucial role in training the model. The next task is to merge the audio and visual features for each video and proceed with developing the model pipeline.
 
 ### Links
 
