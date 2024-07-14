@@ -29,7 +29,7 @@ However, in scenarios like commercial videos that often start with a narrative a
 
 The architecture of the bidirectional LSTMs model is as follows:
 
-<img src="{{site.baseurl}}/assets/bidirectional_LSTMs.png" width="600px"/>
+<img src="{{site.baseurl}}/assets/Bidirectional_LSTMs.png" width="600px"/>
 
 ## CNNs
 
