@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introduction to edgeai and TIDL"
-subtitle: "Week 6-7"
+subtitle: "Week 7-8"
 date: 2024-08-04
 background: "/img/main1.png"
 tags: gsoc

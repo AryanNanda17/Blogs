@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dataset Collection and Feature Extraction"
-subtitle: "Week 0-1"
+subtitle: "Week 1-2"
 date: 2024-06-16
 background: "/img/main1.png"
 tags: gsoc

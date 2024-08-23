@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GSoC - I made it!"
-subtitle: "Intro to my GSoC project"
+subtitle: "The Beginning. Intro to my GSoC project"
 date: 2024-05-17
 background: "/img/main1.png"
 tags: gsoc

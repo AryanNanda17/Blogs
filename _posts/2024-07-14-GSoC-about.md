@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Model Training"
-subtitle: "Week 4-5"
+subtitle: "Week 5-6"
 date: 2024-07-14
 background: "/img/main1.png"
 tags: gsoc
