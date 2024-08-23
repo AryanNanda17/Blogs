@@ -2,7 +2,7 @@
 layout: post
 title: "Real-Time Inferencing"
 subtitle: "Week 11-12"
-date: 2024-08-24
+date: 2024-08-23
 background: "/img/main1.png"
 tags: gsoc
 ---
