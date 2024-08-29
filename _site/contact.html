@@ -101,7 +101,12 @@
             Want to get in touch? Fill out the form below to send me a message
             and I will get back to you as soon as possible!
           </p>
-          <form name="sentMessage" id="contactForm" novalidate>
+          <form
+            id="contactForm"
+            action="https://formspree.io/f/xyzgykoo"
+            method="POST"
+            novalidate
+          >
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Name</label>
@@ -109,7 +114,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Name"
-                  id="name"
+                  name="name"
                   required
                   data-validation-required-message="Please enter your name."
                 />
@@ -123,7 +128,7 @@
                   type="email"
                   class="form-control"
                   placeholder="Email Address"
-                  id="email"
+                  name="email"
                   required
                   data-validation-required-message="Please enter your email address."
                 />
@@ -131,15 +136,13 @@
               </div>
             </div>
             <div class="control-group">
-              <div
-                class="form-group col-xs-12 floating-label-form-group controls"
-              >
+              <div class="form-group floating-label-form-group controls">
                 <label>Phone Number</label>
                 <input
                   type="tel"
                   class="form-control"
                   placeholder="Phone Number"
-                  id="phone"
+                  name="phone"
                   required
                   data-validation-required-message="Please enter your phone number."
                 />
@@ -153,7 +156,7 @@
                   rows="5"
                   class="form-control"
                   placeholder="Message"
-                  id="message"
+                  name="message"
                   required
                   data-validation-required-message="Please enter a message."
                 ></textarea>
@@ -161,7 +164,12 @@
               </div>
             </div>
             <br />
-            <div id="success"></div>
+            <div
+              id="my-form-status"
+              style="text-align: center; margin-bottom: 20px"
+            ></div>
+
+            <div id="my-form-status"></div>
             <div class="form-group">
               <button
                 type="submit"
@@ -238,93 +246,52 @@
     <!-- Form Validation -->
     <script src="/Blogs/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js"></script>
     <!-- Send Form -->
+    <!-- Modify this form HTML and place it wherever you want your form -->
+
+    <!-- Place this script at the end of the body tag -->
     <script>
-      $(function () {
-        $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
-          preventSubmit: true,
-          submitError: function ($form, event, errors) {
-            // additional error messages or events
-          },
-          submitSuccess: function ($form, event) {
-            event.preventDefault(); // prevent default submit behaviour
-            // get values from FORM
-            var name = $("input#name").val();
-            var email = $("input#email").val();
-            var phone = $("input#phone").val();
-            var message = $("textarea#message").val();
-            var firstName = name; // For Success/Failure Message
-            // Check for white space in name for Success/Fail message
-            if (firstName.indexOf(" ") >= 0) {
-              firstName = name.split(" ").slice(0, -1).join(" ");
-            }
-            $this = $("#sendMessageButton");
-            $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
-            $.ajax({
-              url: "https://formspree.io/f/xyzgykoo",
-              type: "POST",
-              data: {
-                name: name,
-                phone: phone,
-                email: email,
-                message: message,
-              },
-              cache: false,
-              success: function () {
-                // Success message
-                $("#success").html("<div class='alert alert-success'>");
-                $("#success > .alert-success")
-                  .html(
-                    "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
-                  )
-                  .append("</button>");
-                $("#success > .alert-success").append(
-                  "<strong>Your message has been sent. </strong>"
-                );
-                $("#success > .alert-success").append("</div>");
-                //clear all fields
-                $("#contactForm").trigger("reset");
-              },
-              error: function () {
-                // Fail message
-                $("#success").html("<div class='alert alert-danger'>");
-                $("#success > .alert-danger")
-                  .html(
-                    "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
-                  )
-                  .append("</button>");
-                $("#success > .alert-danger").append(
-                  $("<strong>").text(
-                    "Sorry " +
-                      firstName +
-                      ", it seems that my mail server is not responding. Please try again later!"
-                  )
-                );
-                $("#success > .alert-danger").append("</div>");
-                //clear all fields
-                $("#contactForm").trigger("reset");
-              },
-              complete: function () {
-                setTimeout(function () {
-                  $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
-                }, 1000);
-              },
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+          var status = document.getElementById("my-form-status");
+          var form = event.target;
+          var data = new FormData(form);
+
+          try {
+            let response = await fetch(form.action, {
+              method: form.method,
+              body: data,
+              headers: { Accept: "application/json" },
             });
-          },
-          filter: function () {
-            return $(this).is(":visible");
-          },
-        });
 
-        $('a[data-toggle="tab"]').click(function (e) {
-          e.preventDefault();
-          $(this).tab("show");
+            if (response.ok) {
+              if (status) {
+                status.innerHTML = "Thanks for your submission!";
+              }
+              form.reset();
+            } else {
+              let data = await response.json();
+              if (data.errors) {
+                if (status) {
+                  status.innerHTML = data.errors
+                    .map((error) => error.message)
+                    .join(", ");
+                }
+              } else {
+                if (status) {
+                  status.innerHTML =
+                    "Oops! There was a problem submitting your form.";
+                }
+              }
+            }
+          } catch (error) {
+            if (status) {
+              status.innerHTML =
+                "Oops! There was a problem submitting your form.";
+            }
+          }
         });
-      });
-
-      /*When clicking on Full hide fail/success boxes */
-      $("#name").focus(function () {
-        $("#success").html("");
-      });
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
